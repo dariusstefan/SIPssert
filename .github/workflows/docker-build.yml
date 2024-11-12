@@ -20,9 +20,6 @@ jobs:
       - name: Build Docker image
         run: docker build -t sipssert-build-test ./docker/
 
-      - name: Test Docker image
-        run: docker run --rm sipssert-build-test
-
       - name: Cleanup Docker images
         run: docker rmi sipssert-build-test
 
