@@ -18,7 +18,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build Docker image
-        run: docker build -t sipssert-build-test .
+        run: docker build -t sipssert-build-test ./docker/
 
       - name: Test Docker image
         run: docker run --rm sipssert-build-test
