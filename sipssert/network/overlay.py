@@ -61,7 +61,7 @@ class OverlayNetwork(network.Network):
                                                    driver="overlay",
                                                    ipam=ipam_config,
                                                    attachable=True,
-                                                   scope="global")
+                                                   scope="swarm")
             self.created = True
         except docker.errors.APIError as err:
             emsg = f"cannot create Overlay adapter {self.name}"
