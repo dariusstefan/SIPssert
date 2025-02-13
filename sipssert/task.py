@@ -240,6 +240,8 @@ class Task():
         self.log.debug(f"running {self.image}: {self.args_dict['command']}")
         self.container = self.controller.docker.containers.create(**self.args_dict)
 
+        self.log.info("Container's networks before connection:", self.container.attrs["NetworkSettings"]["Networks"])
+
         if not self.host_network:
             bridge = False
             for network in self.networks:
