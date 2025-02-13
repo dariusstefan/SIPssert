@@ -253,14 +253,13 @@ class Task():
                     else:
                         self.log.debug("attached to network {}".format(network[0]))
                 except docker.errors.APIError as err:
-                    self.log.debug("Error while connecting")
                     self.log.exception(err)
                     raise err
             if not bridge:
                 try:
+                    self.log.debug("disconnecting from bridge network")
                     self.controller.docker.networks.get("bridge").disconnect(self.container)
                 except docker.errors.APIError as err:
-                    self.log.debug("Error while disconnecting from bridge?!")
                     self.log.exception(err)
         self.container.start()
         self.start_time = time.time()
