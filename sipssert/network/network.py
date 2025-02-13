@@ -72,6 +72,8 @@ def get_networks(controller, config):
             network = sipssert.network.BridgedNetwork(controller, net)
         elif net_type == "host":
             network = sipssert.network.HostNetwork(net)
+        elif net_type == "overlay":
+            network = sipssert.network.OverlayNetwork(controller, net)
         else:
             raise NetworkBadConfig(f"unknown type {net_type}")
         networks.append(network)

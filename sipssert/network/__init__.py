@@ -21,5 +21,6 @@
 
 from .host import *
 from .bridged import *
+from .overlay import *
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4

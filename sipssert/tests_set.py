@@ -88,6 +88,15 @@ class TestsSet():
     def setup_networks(self):
         """Setup of all networks involved in the test set"""
         nets = self.config.get("bridge_networks")
+        overlay_nets = self.config.get("overlay_networks", [])
+        if overlay_nets and not isinstance(overlay_nets, list):
+            overlay_nets = [overlay_nets]
+        for net in overlay_nets:
+            net["type"] = "overlay"
+        if nets:
+            nets.extend(overlay_nets)
+        else:
+            nets = overlay_nets
         self.networks = network.get_networks(self.controller, nets)
 
     def build_scenarios(self):
