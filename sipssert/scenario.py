@@ -61,6 +61,7 @@ class Scenario():
         if self.network:
             nets.append(self.network)
         self.volumes = self.config.get("volumes", {})
+        self.created_volumes = set()
         if self.volumes:
             self.create_volumes()
         self.no_trace = self.is_no_trace(test_set)

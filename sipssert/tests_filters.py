@@ -32,6 +32,7 @@ class TestsFilter:
     def __init__(self, definition = None):
         if not definition:
             return
+        definition = os.path.normpath(definition)
         s = os.path.split(definition)
         if len(s) == 1:
             self.tests_pattern = definition
