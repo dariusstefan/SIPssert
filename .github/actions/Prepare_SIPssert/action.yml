@@ -17,7 +17,7 @@ runs:
   using: 'composite'
   steps:
     - name: Checkout SIPssert repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         repository: ${{ inputs.sipssert-repo }}
         path: sipssert
@@ -35,7 +35,7 @@ runs:
       shell: bash
 
     - name: Checkout Tests repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       if: "${{ inputs.tests-repo != '' }}"
       with:
         repository: ${{ inputs.tests-repo }}
